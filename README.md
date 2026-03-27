@@ -6,6 +6,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub-Copilot-blueviolet.svg)](https://github.com/features/copilot)
 
+> 🎟️ **UNC Students:** Complete the exercises and earn a **free Microsoft
+> Certification voucher** (AZ-900, AI-900, and more)! See
+> [VOUCHER_GIVEAWAY.md](VOUCHER_GIVEAWAY.md) for details — first come, first
+> served!
+
 ---
 
 ## What You'll Learn
