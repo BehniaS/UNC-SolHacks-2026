@@ -10,50 +10,50 @@ Run: python examples/05_debugging/buggy_code.py
 """
 
 
-# BUG 1: Off-by-one error
+# BUG 1: Off-by-one error — FIXED: changed range(start, end) to range(start, end + 1)
 def sum_range(start: int, end: int) -> int:
     """Return the sum of all integers from start to end (inclusive)."""
     total = 0
-    for i in range(start, end):  # BUG: should include 'end'
+    for i in range(start, end + 1):
         total += i
     return total
 
 
-# BUG 2: Wrong comparison operator
+# BUG 2: Wrong comparison operator — FIXED: changed < to >
 def find_maximum(numbers: list[int]) -> int | None:
     """Return the largest number in the list, or None if empty."""
     if not numbers:
         return None
     max_val = numbers[0]
     for num in numbers[1:]:
-        if num < max_val:  # BUG: should be > not <
+        if num > max_val:
             max_val = num
     return max_val
 
 
-# BUG 3: Missing return statement
+# BUG 3: Missing return statement — FIXED: added return count
 def count_even_numbers(numbers: list[int]) -> int:
     """Return how many even numbers are in the list."""
     count = 0
     for num in numbers:
         if num % 2 == 0:
             count += 1
-    # BUG: forgot to return count
+    return count
 
 
-# BUG 4: Type error — mixing strings and integers
+# BUG 4: Type error — FIXED: converted age to str
 def build_greeting(name: str, age: int) -> str:
     """Return a greeting string like 'Hello, Alice! You are 25 years old.'"""
-    greeting = "Hello, " + name + "! You are " + age + " years old."  # BUG: age is int, not str
+    greeting = "Hello, " + name + "! You are " + str(age) + " years old."
     return greeting
 
 
-# BUG 5: Logic error — condition is inverted
+# BUG 5: Logic error — FIXED: changed < 60 to >= 60
 def filter_passing_grades(grades: list[int]) -> list[int]:
     """Return only grades that are 60 or above (passing)."""
     passing = []
     for grade in grades:
-        if grade < 60:  # BUG: should be >= 60
+        if grade >= 60:
             passing.append(grade)
     return passing
 

@@ -20,14 +20,20 @@ Run this file to check your work:
 
 # TODO: Implement a function that converts Fahrenheit to Celsius
 # Formula: (fahrenheit - 32) * 5 / 9
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
 
 
 # TODO: Implement a function that converts Celsius to Fahrenheit
 # Formula: celsius * 9 / 5 + 32
+def celsius_to_fahrenheit(celsius):
+    return celsius * 9 / 5 + 32
 
 
 # TODO: Implement a function that converts miles to kilometers
 # 1 mile = 1.60934 kilometers
+def miles_to_kilometers(miles):
+    return miles * 1.60934
 
 
 # ---------------------------------------------------------------------------
@@ -37,14 +43,21 @@ Run this file to check your work:
 # TODO: Implement a function that checks if a string is a palindrome
 # A palindrome reads the same forwards and backwards (e.g., "racecar")
 # Ignore case and spaces
+def is_palindrome(s):
+    s = s.lower().replace(" ", "")
+    return s == s[::-1]
 
 
 # TODO: Implement a function that counts the number of vowels in a string
 # Count both uppercase and lowercase vowels (a, e, i, o, u)
+def count_vowels(s):
+    return sum(1 for c in s.lower() if c in "aeiou")
 
 
 # TODO: Implement a function that reverses the words in a sentence
 # Example: "hello world" -> "world hello"
+def reverse_words(sentence):
+    return " ".join(sentence.split()[::-1])
 
 
 # ---------------------------------------------------------------------------
@@ -54,10 +67,24 @@ Run this file to check your work:
 # TODO: Implement a function that finds the two numbers in a list that add up
 # to a target sum. Return them as a tuple. Return None if no pair is found.
 # Example: find_pair([1, 3, 5, 7], 8) -> (1, 7) or (3, 5)
+def find_pair(numbers, target):
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[i] + numbers[j] == target:
+                return (numbers[i], numbers[j])
+    return None
 
 
 # TODO: Implement a function that flattens a nested list
 # Example: flatten([[1, 2], [3, [4, 5]]]) -> [1, 2, 3, 4, 5]
+def flatten(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flatten(item))
+        else:
+            result.append(item)
+    return result
 
 
 # ---------------------------------------------------------------------------

@@ -14,6 +14,14 @@ import math
 
 
 def merge_sort(arr):
+    """Sort a list using the merge sort algorithm.
+
+    Args:
+        arr: A list of comparable elements to be sorted.
+
+    Returns:
+        A new list containing all elements from the input, sorted in ascending order.
+    """
     if len(arr) <= 1:
         return arr
     mid = len(arr) // 2
@@ -23,6 +31,15 @@ def merge_sort(arr):
 
 
 def _merge(left, right):
+    """Merge two sorted lists into a single sorted list.
+
+    Args:
+        left: A sorted list.
+        right: A sorted list.
+
+    Returns:
+        A new sorted list containing all elements from both input lists.
+    """
     result = []
     i = j = 0
     while i < len(left) and j < len(right):
@@ -38,6 +55,15 @@ def _merge(left, right):
 
 
 def binary_search(arr, target):
+    """Search for a target value in a sorted list using binary search.
+
+    Args:
+        arr: A sorted list of comparable elements.
+        target: The value to search for.
+
+    Returns:
+        The index of the target if found, or -1 if not present.
+    """
     low, high = 0, len(arr) - 1
     while low <= high:
         mid = (low + high) // 2
@@ -51,6 +77,14 @@ def binary_search(arr, target):
 
 
 def is_prime(n):
+    """Check whether a given integer is a prime number.
+
+    Args:
+        n: An integer to check for primality.
+
+    Returns:
+        True if n is prime, False otherwise.
+    """
     if n < 2:
         return False
     if n < 4:
@@ -66,6 +100,18 @@ def is_prime(n):
 
 
 def matrix_multiply(a, b):
+    """Multiply two matrices together.
+
+    Args:
+        a: A 2D list representing the first matrix.
+        b: A 2D list representing the second matrix.
+
+    Returns:
+        A new 2D list representing the product of matrices a and b.
+
+    Raises:
+        ValueError: If the number of columns in a does not match the number of rows in b.
+    """
     if len(a[0]) != len(b):
         raise ValueError("Incompatible matrix dimensions")
     rows_a, cols_b = len(a), len(b[0])
@@ -79,6 +125,16 @@ def matrix_multiply(a, b):
 
 
 def caesar_cipher(text, shift, decrypt=False):
+    """Encrypt or decrypt text using the Caesar cipher.
+
+    Args:
+        text: The input string to encrypt or decrypt.
+        shift: The number of positions to shift each letter.
+        decrypt: If True, decrypt the text instead of encrypting it.
+
+    Returns:
+        The encrypted or decrypted string.
+    """
     if decrypt:
         shift = -shift
     result = []
@@ -93,12 +149,34 @@ def caesar_cipher(text, shift, decrypt=False):
 
 
 def calculate_distance(point1, point2):
+    """Calculate the Euclidean distance between two points in n-dimensional space.
+
+    Args:
+        point1: A tuple or list representing the first point.
+        point2: A tuple or list representing the second point.
+
+    Returns:
+        The Euclidean distance between the two points as a float.
+
+    Raises:
+        ValueError: If the points have different numbers of dimensions.
+    """
     if len(point1) != len(point2):
         raise ValueError("Points must have the same number of dimensions")
     return math.sqrt(sum((a - b) ** 2 for a, b in zip(point1, point2)))
 
 
 def flatten_dict(d, parent_key="", separator="."):
+    """Flatten a nested dictionary into a single-level dictionary.
+
+    Args:
+        d: The dictionary to flatten.
+        parent_key: The base key string for recursion (used internally).
+        separator: The separator to use between nested keys.
+
+    Returns:
+        A new dictionary with flattened keys joined by the separator.
+    """
     items = []
     for k, v in d.items():
         new_key = f"{parent_key}{separator}{k}" if parent_key else k
